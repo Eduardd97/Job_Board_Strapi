@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "joblists",
+  "info": {
+    "singularName": "joblist",
+    "pluralName": "joblists",
+    "displayName": "joblist"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "jobPosition": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string"
+    },
+    "experience": {
+      "type": "string"
+    },
+    "jobStatus": {
+      "type": "string"
+    },
+    "agency": {
+      "type": "string"
+    },
+    "jobDescription": {
+      "type": "text"
+    }
+  }
+}

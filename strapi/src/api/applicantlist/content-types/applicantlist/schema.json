@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "applicantlists",
+  "info": {
+    "singularName": "applicantlist",
+    "pluralName": "applicantlists",
+    "displayName": "applicantlist"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "email": {
+      "type": "email"
+    },
+    "message": {
+      "type": "richtext"
+    },
+    "portfolio_link": {
+      "type": "string"
+    },
+    "state": {
+      "type": "string"
+    },
+    "jobID": {
+      "type": "integer"
+    }
+  }
+}
