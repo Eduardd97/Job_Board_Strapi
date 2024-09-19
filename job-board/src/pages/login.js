@@ -5,9 +5,8 @@ export default function Expenses() {
     const queryParams = new URLSearchParams(window.location.search);
     const id = queryParams.get("id");
     const [auth, setAuth] = useState("");
-    const [Email, setEmail] = useState("");
-    const [submit, setsubmit] = useState();
-    const [Password, setPassword] = useState("");
+    const [Email, setEmail] = useState("admin@gmail.com");
+    const [Password, setPassword] = useState("strapiadmin");
     // const [submit, setsubmit] = useState();
     const update = async () => {
         const requestOptions = {
