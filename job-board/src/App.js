@@ -10,7 +10,7 @@ function App() {
         fetch("http://localhost:1337/api/joblists/")
             .then((res) => res.json())
             .then((todo) => {
-                console.log(todo.data);
+                // console.log(todo.data);
                 setTodos(todo.data);
             });
     }

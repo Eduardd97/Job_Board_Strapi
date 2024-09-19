@@ -23,7 +23,7 @@ export default function Dashboard() {
     }
 
     function open() {
-        fetch("http://localhost:1337/api/jobslists")
+        fetch("http://localhost:1337/api/joblists/")
             .then((res) => res.json())
             .then((list) => {
                 setOpenJob(list.data);
@@ -78,11 +78,11 @@ export default function Dashboard() {
                 },
             }),
         };
-        // console.log(requestOptions)
-        fetch("http://localhost:1337/api/jobslists", requestOptions).then(
+        // console.log(requestOptions);
+        fetch("http://localhost:1337/api/joblists/", requestOptions).then(
             (response) => response.json()
         );
-        //  .then(data => this.setState(data ));
+        // .then((data) => this.setState(data));
 
         alert("Job Added Successful...");
     };
@@ -115,11 +115,11 @@ export default function Dashboard() {
                     <span>Open Positions</span>
                     <hr />
                     {openJob.map((list, i) => {
-                        if (list.attributes.JobStatus == "Open") {
+                        if (list.jobStatus == "Open") {
                             return (
                                 <div key={i}>
                                     <span style={{ fontSize: "17px" }}>
-                                        {list.attributes.JobPosition}
+                                        {list.jobPosition}
                                     </span>
                                     <hr />
                                 </div>
@@ -133,7 +133,7 @@ export default function Dashboard() {
                 <br />
 
                 {Applicant.map((list, i) => {
-                    if (list.attributes.Status == "Pending") {
+                    if (list.state == "Pending") {
                         return (
                             <div key={i}>
                                 <div>
@@ -141,14 +141,14 @@ export default function Dashboard() {
                                         <div className='logo_'></div>
                                         <div className='description'>
                                             <span className='span1_'>
-                                                {list.attributes.Name}
+                                                {list.name}
                                             </span>
                                             <span style={{ float: "right" }}>
-                                                {list.attributes.Status}
+                                                {list.state}
                                             </span>
                                             <br />
                                             <span className='span1_'>
-                                                {list.attributes.Email}
+                                                {list.email}
                                             </span>
                                             <textarea
                                                 style={{ borderWidth: "0px" }}
@@ -167,7 +167,8 @@ export default function Dashboard() {
                                                             .Portfolio_Link
                                                     }
                                                 >
-                                                    View Portfolio
+                                                    {" "}
+                                                    View Portfolio{" "}
                                                 </a>{" "}
                                                 <br />
                                                 <button
@@ -242,7 +243,7 @@ export default function Dashboard() {
                         ></textarea>
                         <br />
 
-                        <select
+                        {/* <select
                             onChange={(event) =>
                                 setjobExpreience(event.target.value)
                             }
@@ -255,6 +256,26 @@ export default function Dashboard() {
                                 Experience : 1 - 3 years
                             </option>
                             <option value='Experience : 2 - 3 years'>
+                                Experience : 1 - 3 years
+                            </option>
+                            <option value='Experience : 4 - 7 years'>
+                                Experience : 4 - 7 years
+                            </option>
+                        </select> */}
+                        <select
+                            value={jobExpreience} // Связываем значение с состоянием
+                            onChange={(event) =>
+                                setjobExpreience(event.target.value)
+                            }
+                            className='select'
+                        >
+                            <option value='' disabled>
+                                Requirement
+                            </option>
+                            <option value='Experience : 0 - 1 year'>
+                                Experience : 0 - 1 year
+                            </option>
+                            <option value='Experience : 1 - 3 years'>
                                 Experience : 1 - 3 years
                             </option>
                             <option value='Experience : 4 - 7 years'>

@@ -1,13 +1,14 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Navigate } from "react-router-dom";
 
 export default function Expenses() {
     const queryParams = new URLSearchParams(window.location.search);
     const id = queryParams.get("id");
     const [auth, setAuth] = useState("");
-    const [Email, setEmail] = useState("test@gmail.com");
-    const [Password, setPassword] = useState("pass123");
+    const [Email, setEmail] = useState("");
     const [submit, setsubmit] = useState();
+    const [Password, setPassword] = useState("");
+    // const [submit, setsubmit] = useState();
     const update = async () => {
         const requestOptions = {
             method: "POST",
@@ -19,7 +20,7 @@ export default function Expenses() {
             .then((data) => setAuth(data));
     };
 
-    console.log(auth.jwt);
+    // console.log(auth.jwt);
     if (typeof auth.jwt !== "undefined") {
         const url = "/dashboard?token=" + auth.jwt;
         return <Navigate to={url} />;
